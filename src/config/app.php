@@ -37,7 +37,8 @@ return array(
         app_path()."/storage",
         app_path()."/tests",
         app_path()."/views",
-        app_path()."/config"
+        app_path()."/config",
+        app_path()."/vendor",
     ),
 
     /*
@@ -54,14 +55,14 @@ return array(
       | Edit to set the api's version number
       |--------------------------------------------------------------------------
     */
-    "default-api-version" => "",
+    "default-api-version" => "v1",
 
     /*
       |--------------------------------------------------------------------------
       | Edit to set the swagger version number
       |--------------------------------------------------------------------------
     */
-    "default-swagger-version" => "1.2",
+    "default-swagger-version" => "2.0",
 
     /*
       |--------------------------------------------------------------------------
