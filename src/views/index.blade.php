@@ -96,11 +96,11 @@ header("Access-Control-Allow-Headers: X-Requested-With");
             function addApiKeyAuthorization() {
                 var key = encodeURIComponent($('#input_apiKey')[0].value);
                 if (key && key.trim() != "") {
-                    var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("api_key", key, "query");
-                    window.swaggerUi.api.clientAuthorizations.add("api_key", apiKeyAuth);
+                    var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("{{$apiKey}}", key, "query");
+                    window.swaggerUi.api.clientAuthorizations.add("{{$apiKey}}", apiKeyAuth);
                     log("added key " + key);
                 } else {
-                    window.swaggerUi.api.clientAuthorizations.remove('api_key');
+                    window.swaggerUi.api.clientAuthorizations.remove('{{$apiKey}}');
                 }
             }
 
@@ -147,7 +147,7 @@ header("Access-Control-Allow-Headers: X-Requested-With");
                 {{ HTML::image('packages/jlapp/swaggervel/images/wordnik_api.png', "", array('id' => 'show-wordnik-dev-icon', 'title' => 'Show Wordnik Developer Apis'), $secure); }}
             </div>
             <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"/></div>
-            <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text"/></div>
+            <div class='input'><input placeholder="{{$apiKey}}" id="input_apiKey" name="apiKey" type="text"/></div>
             <div class='input'><a id="explore" href="#" data-sw-translate>Explore</a></div>
         </form>
     </div>
